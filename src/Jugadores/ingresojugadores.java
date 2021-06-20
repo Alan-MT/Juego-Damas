@@ -4,7 +4,8 @@ import src.Inicio.IngresoDatos;
 
 public class ingresojugadores {
     private Jugador[] jug = new Jugador[10];
-    private int player1, player2;
+    private int player1;
+    private int player2 = 1;
 
 
     public ingresojugadores(){
@@ -22,18 +23,15 @@ public class ingresojugadores {
             System.out.println((i+1)+". "+jug[i].getNombre());
         }
     }
-    public void eligeJugadores(){
-        boolean mismo = true;
-        do{
-        player1 = IngresoDatos.getnumero("Elige al jugador 1--")-1;
-        player2 = IngresoDatos.getnumero("Elige al jugador 2--")-1;
-        if (player1 == player2) {
-            System.out.println("\n  Error. El jugador 1 y el jugador 2 son el mismo.");
-        } else{ mismo = false;}
-
-    }while (mismo == true);
+    public Jugador eligeJugadores(){
+        player1 = IngresoDatos.getnumero("Elige al jugador "+player2+"")-1;
+        if (player2 == 2) {
+            player2 = 1;
+        } else {
+            player2++;
+        }
         
-    System.out.println("\n\n-"+jug[player1].getNombre()+"--Vrs--"+jug[player2].getNombre()+"-");
+    return jug[player1];
     }
     public Jugador[] getJug() {
         return jug;

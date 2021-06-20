@@ -16,10 +16,19 @@ public class Game {
 
 
     public void inicializarPartida() {
-
-        
         ing.mostrarJugadores();
-        ing.eligeJugadores();
+        boolean mismo = true;
+        do{
+           
+            jugador1 = ing.eligeJugadores();
+            jugador2 = ing.eligeJugadores();
+        if (jugador1.equals(jugador2)) {
+            System.out.println("\n  Error. El jugador 1 y el jugador 2 son el mismo.");
+        } else{ mismo = false;}
+
+    }while (mismo == true);
+    System.out.println("\n\n-"+jugador1.getNombre()+"--Vrs--"+jugador2.getNombre()+"-");
+
         crearPartida(jugador1, jugador2);
     
 
