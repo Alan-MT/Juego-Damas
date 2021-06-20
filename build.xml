@@ -25,7 +25,7 @@
 
     <target name="runClass" depends ="compile" description ="compile the source" >
         <!-- Compilando el código en ${src} a ${build} -->
-        <java classname ="src.tienda.Principal" classpath ="${build}" />
+        <java classname ="src.Inio.Principal" classpath ="${build}" />
      </target >
 
      <target name="jar" depends ="compile" description ="Generando el directori dist para almacenar el Jar " >
@@ -34,7 +34,7 @@
         <!-- Agregamos todo lo que hay en ${build} en ${nameDist}-${DSTAMP}.jar -->
         <jar jarfile ="${dist}/lib/MyApp-${DSTAMP}.jar" basedir ="${build}" >
             <manifest >
-                <attribute name="Main-Class" value ="src/Principal" />
+                <attribute name="Main-Class" value ="src/Inicio/Principal" />
             </manifest >
         </jar>
      </target >

@@ -2,37 +2,50 @@ package src.tablero;
 
 public class Casilla{
 
-    public static final String fGris = "\u001b[47;1m";
-    public static final String fRojo = "\033[41m";
-    public static final String negro = "\033[30m";
-    public static final String reset = "\u001B[0m";
-    public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
-    
-    public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
-    public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
-    public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m";
-    public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
-    public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
-    public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
-    private String caracter;
-    private String casillaRoja = ANSI_BLACK_BACKGROUND+" "+caracter+" "+reset;
-    private String casillaGris = ANSI_WHITE_BACKGROUND+" "+caracter+" "+reset;
 
-    public String getCasillaNegra(String caracter) { 
-        if (caracter.equals("O")) {
-            return ANSI_BLACK_BACKGROUND+negro+" "+caracter+" "+reset;
+       private String fGris = "\u001b[47;1m", fRojo = "\033[41m", negro = "\033[30m", reset = "\u001B[0m";
+    private char caracter;
+    private boolean oscuro, esEquis;
+
+    public boolean isEsEquis() {
+        return esEquis;
+    }
+
+    public void setEsEquis(boolean esEquis) {
+        this.esEquis = esEquis;
+    }
+
+    public Casilla() {
+
+    }
+
+    public Casilla(boolean oscuro, char caracter) {
+        this.oscuro = oscuro;
+        this.caracter = caracter;
+    }
+
+    public String getCasilla() {
+        if (oscuro) {
+            return fRojo+negro+" "+caracter+" "+reset;
+        } else {
+            return fGris + negro+"   "+reset;
         }
-        return ANSI_BLACK_BACKGROUND+" "+caracter+" "+reset;
     }
 
-    public String getCasillaGris(String caracter) {
-        return ANSI_WHITE_BACKGROUND+" "+caracter+" "+reset;
-    }
-
-    public String getCaracter() {
+    public char getCaracter() {
         return caracter;
     }
 
+    public void setCaracter(char caracter) {
+        this.caracter = caracter;
+    }
 
+    public boolean isOscuro() {
+        return oscuro;
+    }
+
+    public void setOscuro(boolean oscuro) {
+        this.oscuro = oscuro;
+    }
     
 }

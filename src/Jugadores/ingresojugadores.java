@@ -3,7 +3,7 @@ package src.Jugadores;
 import src.Inicio.IngresoDatos;
 
 public class ingresojugadores {
-    private Jugador[] jug = new Jugador[5];
+    private Jugador[] jug = new Jugador[10];
     private int player1, player2;
 
 
@@ -11,7 +11,7 @@ public class ingresojugadores {
         ingresojugador();
     }
     public void ingresojugador(){
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < jug.length; i++) {
             String nombres = IngresoDatos.getTexto((i+1)+") Ingrese el nombre del jugador");
             jug[i] = new Jugador(nombres);
         }
@@ -23,10 +23,17 @@ public class ingresojugadores {
         }
     }
     public void eligeJugadores(){
+        boolean mismo = true;
+        do{
         player1 = IngresoDatos.getnumero("Elige al jugador 1--")-1;
         player2 = IngresoDatos.getnumero("Elige al jugador 2--")-1;
+        if (player1 == player2) {
+            System.out.println("\n  Error. El jugador 1 y el jugador 2 son el mismo.");
+        } else{ mismo = false;}
+
+    }while (mismo == true);
         
-        System.out.println("\n\n-"+jug[player1].getNombre()+"--Vrs--"+jug[player2].getNombre()+"-");
+    System.out.println("\n\n-"+jug[player1].getNombre()+"--Vrs--"+jug[player2].getNombre()+"-");
     }
     public Jugador[] getJug() {
         return jug;
