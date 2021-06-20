@@ -4,15 +4,16 @@ import src.Jugadores.*;
 import src.tablero.*;
 
 public class Game {
+    private ingresojugadores jug; 
 
     public Game() {
-        ingresojugadores jug = new ingresojugadores();
-        do {
+        new ingresojugadores();
+
             jug.eligeJugadores();
             PPT();
             Tablero tab = new Tablero();
             tab.dibujarTablero();
-        } while (int Salir == 0);
+
 
     }
 
@@ -60,5 +61,21 @@ public class Game {
         }
         return resu;
     }
+    public void turno(Jugador jugador){
+        
+        System.out.println("Es tu turno "+jugador.getNombre());
+        System.out.println("\n Elige la ficha a mover(a1 o 1a)");
+
+    }
+    //
+    public void manejarTurno(Jugador jug1, Jugador jug2){
+ 
+            turno(jug1);
+            turno(jug2);
+
+
+    }
+
+
 
 }

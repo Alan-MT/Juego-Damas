@@ -6,6 +6,7 @@ public class Tablero {
     private int tamaño = 8;
     String[][] tabla = new String[8][8];
     Casilla c = new Casilla();
+    private char letras[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
     public static final String reset = "\u001B[0m";
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
@@ -35,7 +36,7 @@ public class Tablero {
         }
     }
     public void dibujarTablero() {
-        char letras[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
+        
         System.out.print("  ");
         for (int i = 0; i < tamaño; i++){
             System.out.print(ANSI_RED_BACKGROUND+" " + letras[i] + " "+reset);
@@ -51,5 +52,24 @@ public class Tablero {
             System.out.println();
         }
     }
+    public int buscaletra(char letra){
+        int indice = 0;
+        for (int i = 0; i < letras.length; i++) {
+            if (letra == letras[i]) {
+                indice = i;
+                break;
+            }
+        }
+        return indice;  
+    }
+
+    public char[] getLetras() {
+        return letras;
+    }
+
+    public void setLetras(char[] letras) {
+        this.letras = letras;
+    }
+    
 
 }
