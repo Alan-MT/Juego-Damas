@@ -97,7 +97,7 @@ public class Game {
         boolean movimientoValido = false;
 
         do {
-            System.out.println("\n  Turno de " + jugador.getNombre() + ":");
+            System.out.println("\n  Turno de " + jugador.getNombre() + ":" +" simbolo: "+jugador.getSimbolo());
 
             System.out.println("\n  (Si quieres salir escribe 'no')");
             String ficha = IngresoDatos.getTexto("  Elige la ficha a mover (a1): ");
