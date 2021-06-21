@@ -3,6 +3,7 @@ package src.Juego;
 import java.util.Scanner;
 
 import src.tablero.*;
+import src.Inicio.IngresoDatos;
 import src.Jugadores.*;
 
 public class Game {
@@ -45,7 +46,7 @@ public class Game {
                     System.out.println("\n  Elige el simbolo que quieres usar:");
                     System.out.println("  1. X (Turno 1)");
                     System.out.println("  2. O (Turno 2)");
-                    int simb = LecturaDatos.leerEntero("Escribe el numero del simbolo: ");
+                    int simb = IngresoDatos.getnumero("Escribe el numero del simbolo: ");
 
                     if (simb == 1) {
                         jugador1.setSimbolo('X');
@@ -81,13 +82,6 @@ public class Game {
 
         manejarTurnos(jugador1, jugador2);
 
-        /*
-         * realizarMovimiento(tableroPartida[5][1], tableroPartida[4][2]);
-         * tablero.mostrarTablero();
-         * 
-         * realizarMovimiento(tableroPartida[2][2], tableroPartida[3][3]);
-         * tablero.mostrarTablero();
-         */
     }
 
     public boolean turno(Jugador jugador, int numJugador) {
@@ -101,7 +95,7 @@ public class Game {
             System.out.println("\n  Turno de " + jugador.getNombre() + ":");
 
             System.out.println("\n  (Si quieres salir escribe 'no')");
-            String ficha = LecturaDatos.leerTexto("  Elige la ficha a mover (a1): ");
+            String ficha = IngresoDatos.getTexto("  Elige la ficha a mover (a1): ");
 
             if (ficha.equals("no")) {
                 return true;
@@ -109,7 +103,7 @@ public class Game {
             colIn = tablero.buscarIndiceLetras(ficha.charAt(0));
             filaIn = Character.getNumericValue(ficha.charAt(1)) - 1;
 
-            ficha = LecturaDatos.leerTexto("  Elige la casilla a la que moveras: ");
+            ficha = IngresoDatos.getTexto("  Elige la casilla a la que moveras: ");
             colFn = tablero.buscarIndiceLetras(ficha.charAt(0));
             filaFn = Character.getNumericValue(ficha.charAt(1)) - 1;
 
@@ -129,17 +123,6 @@ public class Game {
 
         } while (movimientoValido == false);
 
-        // realizarMovimiento(tableroPartida[filaIn][colIn],
-        // tableroPartida[filaFn][colFn]);
-        // tablero.mostrarTablero();
-
-        // revisar si la casilla inicial tiene letra
-
-        // revisar si es x ^ o
-
-        // revisar si la casilla final está vacia
-
-        // comprobar si se puede hacer el movimiento
         return false;
     }
 
@@ -244,16 +227,16 @@ public class Game {
 
             if (jugador1.getFichasTablero() == 0 || jugador2.getFichasTablero() == 0) {
                 if (jugador1.getFichasTablero() == 0) {
-                    jugador2.setPartidasGanadas(jugador2.getPartidasGanadas() + 1);
+                    jugador2.setpGanadas(jugador2.getpGanadas() + 1);
                     jugador2.setPuntuacion(jugador2.getPuntuacion() + 3);
-                    jugador1.setPartidasPerdidas(jugador1.getPartidasPerdidas() + 1);
+                    jugador1.setpPerdidas(jugador1.getpPerdidas() + 1);
 
                     System.out.println("\n  EL GANADOR ES: " + jugador2.getNombre());
                     ganador = true;
                 } else if (jugador2.getFichasTablero() == 0) {
-                    jugador1.setPartidasGanadas(jugador1.getPartidasGanadas() + 1);
+                    jugador1.setpGanadas(jugador1.getpGanadas() + 1);
                     jugador1.setPuntuacion(jugador1.getPuntuacion() + 3);
-                    jugador2.setPartidasPerdidas(jugador2.getPartidasPerdidas() + 1);
+                    jugador2.setpPerdidas(jugador2.getpPerdidas() + 1);
 
                     System.out.println("\n  EL GANADOR ES: " + jugador1.getNombre());
                     ganador = true;
@@ -317,16 +300,16 @@ public class Game {
 
     public boolean salir() {
         if (jugador1.getFichasTablero() < jugador2.getFichasTablero()) {
-            jugador2.setPartidasGanadas(jugador2.getPartidasGanadas() + 1);
+            jugador2.setpGanadas(jugador2.getpGanadas() + 1);
             jugador2.setPuntuacion(jugador2.getPuntuacion() + 3);
-            jugador1.setPartidasPerdidas(jugador1.getPartidasPerdidas() + 1);
+            jugador1.setpPerdidas(jugador1.getpPerdidas() + 1);
 
             System.out.println("\n  EL GANADOR ES: " + jugador2.getNombre()+" --"+jugador2.getFichasTablero());
             System.out.println("PERDEDOR" +jugador1.getNombre()+"--"+ jugador1.getFichasTablero());
         } else {
-            jugador1.setPartidasGanadas(jugador1.getPartidasGanadas() + 1);
+            jugador1.setpGanadas(jugador1.getpGanadas() + 1);
             jugador1.setPuntuacion(jugador1.getPuntuacion() + 3);
-            jugador2.setPartidasPerdidas(jugador2.getPartidasPerdidas() + 1);
+            jugador2.setpPerdidas(jugador2.getpPerdidas() + 1);
 
             System.out.println("\n  EL GANADOR ES: " + jugador1.getNombre());
         }

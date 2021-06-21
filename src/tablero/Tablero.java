@@ -1,6 +1,6 @@
 package src.tablero;
 
-
+import src.Jugadores.*;
 public class Tablero {
 
     private Casilla casillas[][] = new Casilla[8][8];
@@ -72,6 +72,23 @@ public class Tablero {
             }
         }
         return indice;
+    }
+    public void contadorFichas(Jugador jugador1, Jugador jugador2) {
+        jugador1.setFichasTablero(0);
+        jugador2.setFichasTablero(0);
+        for (int i = 0; i < casillas.length; i++) {
+            for (int j = 0; j < casillas.length; j++) {
+
+                if (casillas[i][j].getCaracter()==jugador1.getSimbolo()) {
+                    jugador1.setFichasTablero(jugador1.getFichasTablero()+1);
+                } 
+                
+                if (casillas[i][j].getCaracter()==jugador2.getSimbolo()) {
+                    jugador2.setFichasTablero(jugador2.getFichasTablero()+1);
+                }
+                
+            }
+        }
     }
 
     public Casilla[][] getCasillas() {

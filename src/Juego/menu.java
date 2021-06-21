@@ -15,7 +15,7 @@ public class menu {
 
         do {
             System.out.println("\n\n       JUEGO DE DAMAS");
-            System.out.println("\n  Menu:");
+            System.out.println("\n////  Menu:\\\\");
             System.out.println("   1. Iniciar Partida.");
             System.out.println("   2. Ingresar un Jugador.");
             System.out.println("   3. Mostrar Jugadores.");

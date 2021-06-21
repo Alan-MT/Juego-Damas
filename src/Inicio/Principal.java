@@ -1,6 +1,7 @@
 package src.Inicio;
 
-import src.Juego.Game;
+
+import src.Juego.menu;
 
 public class Principal {
     
@@ -9,7 +10,7 @@ public class Principal {
     }
     
     public Principal(){
-             Game juego = new Game();
+        menu menu = new menu();
     }
 
 }

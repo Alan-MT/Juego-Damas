@@ -3,14 +3,11 @@ package src.Jugadores;
 public class Jugador {
     
     private String nombre;
-    private int puntuacion, pGanadas, pPerdidas, fichaTablero;
+    private int puntuacion, pGanadas, pPerdidas, fichasTablero;
     private char simbolo;
     
     public Jugador(String nombre) {
         this.nombre = nombre;
-        puntuacion = 0;
-        pGanadas = 0;
-        pPerdidas = 0;
 
     }
     public String getNombre() {
@@ -37,11 +34,11 @@ public class Jugador {
     public void setpPerdidas(int pPerdidas) {
         this.pPerdidas = pPerdidas;
     }
-    public int getFichaTablero() {
-        return fichaTablero;
+    public int getFichasTablero() {
+        return fichasTablero;
     }
-    public void setFichaTablero(int fichaTablero) {
-        this.fichaTablero = fichaTablero;
+    public void setFichasTablero(int fichaTablero) {
+        this.fichasTablero = fichaTablero;
     }
     public char getSimbolo() {
         return simbolo;
