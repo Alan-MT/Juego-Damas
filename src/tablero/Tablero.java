@@ -3,6 +3,7 @@ package src.tablero;
 import src.Jugadores.*;
 public class Tablero {
 
+    private String fRojo = "\033[41m", reset = "\u001B[0m";
     private Casilla casillas[][] = new Casilla[8][8];
     private char[] letras = {'a','b','c','d','e','f','g','h'};
 
@@ -41,7 +42,7 @@ public class Tablero {
         imprimirFilaLetras();
 
         for (int i = 0; i < casillas.length; i++) {
-            System.out.print("     " + (i+1)+" ");
+            System.out.print(fRojo+"     " + (i+1)+" "+reset);
             for (int j = 0; j < casillas.length; j++) {
                 System.out.print(casillas[i][j].getCasilla());
             }
@@ -57,7 +58,7 @@ public class Tablero {
 
         System.out.print("       ");
         for (int i = 0; i < letras.length; i++) {
-            System.out.print(" "+letras[i]+" ");
+            System.out.print(fRojo+" "+letras[i]+" "+reset);
         }
         System.out.println();
 

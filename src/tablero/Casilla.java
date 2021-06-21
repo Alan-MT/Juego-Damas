@@ -3,7 +3,7 @@ package src.tablero;
 public class Casilla{
 
 
-    private String fGris = "\u001b[47;1m", fRojo = "\033[41m", negro = "\033[30m", reset = "\u001B[0m";
+    private String fGris = "\u001b[47;1m", negro = "\033[30m", reset = "\u001B[0m";
     private char caracter;
     private boolean oscuro, esEquis;
 
@@ -26,9 +26,9 @@ public class Casilla{
 
     public String getCasilla() {
         if (oscuro) {
-            return fRojo+negro+" "+caracter+" "+reset;
+            return negro+" "+caracter+" "+reset;
         } else {
-            return fGris + negro+"   "+reset;
+            return fGris +"   "+reset;
         }
     }
 

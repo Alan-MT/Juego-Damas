@@ -41,7 +41,12 @@ public class Game {
                     System.out.println("\n  Error. El jugador 1 y el jugador 2 son el mismo.");
                 } else {
                     // PIEDRA, PAPEL O TIJERA
-                   PPT(); 
+                   String win = PPT(); 
+                   if (win.equals("gano jugador 2")) {
+                    Jugador auxi = jugador1;
+                    jugador1 = jugador2;
+                    jugador2 = auxi;
+                   }
                     // El que gane:
                     System.out.println("\n  Elige el simbolo que quieres usar:");
                     System.out.println("  1. X (Turno 1)");
@@ -253,7 +258,7 @@ public class Game {
 
     }
 
-    public void PPT() {
+    public String  PPT() {
         String Ganador;
         System.out.println("\n\nJuguemos Piedra-Papel o Tijera para decir que jugador va a empezar");
         do {
@@ -264,23 +269,23 @@ public class Game {
             System.out.println(" " + J1 + "              " + J2);
             System.out.println("\n     " + Ganador);
         } while (Ganador.equals("empate"));
-
+        return Ganador;
     }
 
     public String PPTx(String Jugador1, String Jugador2) {
 
         if (Jugador1.equals("piedra") && Jugador2.equals("tijera")) {
-            return "gano jugador1";
+            return "gano jugador 1";
         } else if (Jugador2.equals("piedra") && Jugador1.equals("tijera")) {
-            return "gano jugador2";
+            return "gano jugador 2";
         } else if (Jugador2.equals("papel") && Jugador1.equals("piedra")) {
-            return "gano jugador2";
+            return "gano jugador 2";
         } else if (Jugador1.equals("papel") && Jugador2.equals("piedra")) {
-            return "gano jugador1";
+            return "gano jugador 1";
         } else if (Jugador1.equals("tijera") && Jugador2.equals("papel")) {
-            return "gano jugador1";
+            return "gano jugador 1";
         } else if (Jugador2.equals("tijera") && Jugador1.equals("papel")) {
-            return "gano jugador2";
+            return "gano jugador 2";
         }
         return "empate";
     }
